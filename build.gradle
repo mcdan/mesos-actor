@@ -144,3 +144,17 @@ publishing {
         }
     }
 }
+
+publishing {
+    repositories {
+        maven {
+            credentials {
+                username = project.hasProperty('mvnUsername') ? project.property('mvnUsername') : System.getenv('MVN_USERNAME')
+                password = project.hasProperty('mvnPassword') ? project.property('mvnPassword') : System.getenv('MVN_PASSWORD')
+            }
+            name "corpArtifactory"
+            url "https://artifactory-uw2.adobeitc.com/artifactory/maven-bladerunner-snapshot/"
+        }
+    }
+}
+
